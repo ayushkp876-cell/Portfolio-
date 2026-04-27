@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ayush Kumar Pal — Content Creator & Graphic Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f0ff;--text:#0a0a0a;--gold:#b8893a;
+  --gold-light:#d4aa6a;--muted:#5a3fa0;
+  --card:#ffffff;--border:#d0b8f5;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Lato',sans-serif;line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+  padding:0 40px;height:58px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{width:40px;height:40px;background:linear-gradient(135deg,#3b1fff,#c800c8);display:flex;align-items:center;
+  justify-content:center;cursor:pointer;flex-shrink:0;border-radius:6px}
+.nav-logo img{width:100%;height:100%;object-fit:contain}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links li a{font-size:0.74rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;cursor:pointer;transition:color 0.2s;background:none;border:none;font-family:inherit}
+.nav-links li a:hover{color:var(--gold)}
+.nav-cta{color:var(--gold)!important;border:1.5px solid var(--gold)!important;padding:5px 16px!important}
+.nav-cta:hover{background:var(--gold)!important;color:#fff!important}
+
+/* HERO */
+#hero{display:flex;align-items:center;justify-content:center;padding:100px 40px 80px;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;top:0;right:0;width:42%;height:100%;
+  background:repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(184,137,58,0.04) 40px,rgba(184,137,58,0.04) 41px);
+  pointer-events:none}
+.hero-inner{max-width:700px;margin:0 auto;width:100%;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:0.68rem;font-weight:700;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--text);border:1px solid var(--border);
+  padding:6px 16px;border-radius:20px;margin-bottom:30px;background:rgba(184,137,58,0.08)}
+.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3rem,9vw,5.8rem);font-weight:700;
+  line-height:1.0;color:var(--text);display:block}
+.hero-name-gold{font-family:'Playfair Display',serif;font-size:clamp(3rem,9vw,5.8rem);font-weight:700;
+  line-height:1.05;color:var(--gold);display:block;margin-bottom:16px}
+.hero-role{font-family:'Playfair Display',serif;font-size:clamp(1rem,2.5vw,1.4rem);font-style:italic;
+  color:var(--text);margin-bottom:20px}
+.hero-desc{font-size:0.88rem;color:var(--muted);max-width:420px;line-height:1.8;margin-bottom:40px;margin-left:auto;margin-right:auto}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
+.btn-gold{background:var(--gold);color:#fff;padding:12px 26px;font-family:'Lato',sans-serif;
+  font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border:none;
+  cursor:pointer;transition:background 0.2s;text-decoration:none;display:inline-block}
+.btn-gold:hover{background:#9e7230}
+.btn-border{background:transparent;color:var(--text);padding:12px 26px;font-family:'Lato',sans-serif;
+  font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  border:1.5px solid var(--text);cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block}
+.btn-border:hover{background:var(--text);color:#fff}
+.scroll-hint{display:flex;align-items:center;gap:12px;font-size:0.66rem;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.scroll-hint::before{content:'';display:block;width:30px;height:1px;background:var(--muted)}
+
+/* SECTIONS */
+section{padding:90px 40px}
+.s-inner{max-width:1100px;margin:0 auto}
+.s-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.s-tag::before{content:'';width:22px;height:1.5px;background:var(--gold);display:block}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:600;
+  line-height:1.2;color:var(--text);margin-bottom:48px}
+.s-title em{font-style:italic;color:var(--gold)}
+.divider{width:36px;height:2px;background:var(--gold);margin:24px 0}
+
+/* ABOUT */
+#about{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.about-grid{display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:center}
+.ak-box{width:100%;max-width:240px;aspect-ratio:1/1;background:linear-gradient(135deg,#3b1fff,#c800c8);display:flex;align-items:center;justify-content:center;margin:0 auto;margin-top:40px;border-radius:12px}
+.ak-box img{width:100%;height:100%;object-fit:contain}
+.bio p{font-size:0.88rem;color:var(--text);line-height:1.85;margin-bottom:14px}
+.bio strong{font-weight:700}
+.info-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px}
+.ic{border:1px solid var(--border);padding:13px 16px;background:var(--bg)}
+.ic-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:5px}
+.ic-val{font-size:0.86rem;font-weight:700;color:var(--text)}
+.chips-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{font-size:0.73rem;color:var(--text);border:1px solid var(--border);padding:5px 12px;border-radius:2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{border:1px solid var(--border);padding:16px 12px;text-align:center;background:var(--bg)}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:600;color:var(--gold);display:block;line-height:1;margin-bottom:4px}
+.stat-l{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+
+/* WORK */
+#work{background:var(--bg)}
+.port-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:16px}
+.port-hdr .s-title{margin-bottom:0}
+.cat-block{margin-bottom:64px}
+.cat-lbl{font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--text);border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:26px;display:block}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wcard{position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#e8e2d8}
+.wcard img{width:100%;height:100%;object-fit:contain;display:block;transition:transform 0.5s;background:#e8e2d8}
+.wcard:hover img{transform:scale(1.06)}
+.wc-ov{position:absolute;inset:0;background:rgba(26,23,16,0.72);opacity:0;transition:opacity 0.3s;pointer-events:none}
+.wcard:hover .wc-ov{opacity:1}
+.wc-inf{position:absolute;bottom:0;left:0;right:0;padding:18px 16px;color:#fff;
+  opacity:0;transform:translateY(6px);transition:opacity 0.3s,transform 0.3s;pointer-events:none}
+.wcard:hover .wc-inf{opacity:1;transform:translateY(0)}
+.wc-cat{font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:4px}
+.wc-ttl{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;line-height:1.2}
+.wc-yr{font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:3px}
+
+/* SKILLS */
+#skills{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sk-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.sk-desc{font-size:0.88rem;color:var(--muted);line-height:1.8;margin-bottom:32px}
+.tblock{margin-bottom:22px}
+.tlbl{font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text);margin-bottom:10px}
+.ttags{display:flex;flex-wrap:wrap;gap:7px}
+.tchip{background:var(--bg);border:1px solid var(--border);padding:5px 13px;font-size:0.75rem;color:var(--text);border-radius:2px}
+.tchip.ai{border-color:var(--gold);color:var(--gold)}
+.skrow{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
+.skrow:first-child{border-top:1px solid var(--border)}
+.sk-nm{font-size:0.86rem;color:var(--text);flex:1;min-width:130px}
+.sk-tr{height:2px;background:var(--border);flex:2;border-radius:2px;overflow:hidden}
+.sk-fi{height:100%;background:var(--gold);border-radius:2px;width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
+.sk-pc{font-size:0.82rem;font-weight:700;color:var(--gold);min-width:36px;text-align:right}
+
+/* CONTACT */
+#contact{background:var(--bg)}
+.ct-wrap{max-width:560px}
+.ct-desc{font-size:0.88rem;color:var(--muted);line-height:1.8;margin-bottom:32px}
+.ct-email{display:block;font-family:'Playfair Display',serif;font-size:clamp(1.1rem,3vw,1.5rem);
+  font-style:italic;color:var(--text);text-decoration:underline;text-underline-offset:6px;
+  text-decoration-color:var(--gold);margin-bottom:30px;cursor:pointer;transition:color 0.2s}
+.ct-email:hover{color:var(--gold)}
+.ct-social{display:flex;gap:12px;flex-wrap:wrap}
+.sb{font-size:0.74rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--border);padding:9px 20px;text-decoration:none;
+  transition:all 0.2s;border-radius:2px}
+.sb:hover{border-color:var(--gold);color:var(--gold)}
+.sb.hl{background:var(--gold);border-color:var(--gold);color:#fff}
+.sb.hl:hover{background:#9e7230;border-color:#9e7230}
+
+/* LIGHTBOX */
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:999;
+  display:none;align-items:center;justify-content:center;padding:20px}
+#lightbox.open{display:flex}
+#lb-close{position:absolute;top:16px;right:20px;color:#fff;font-size:2rem;cursor:pointer;
+  background:none;border:none;line-height:1;opacity:0.6;transition:opacity 0.2s;padding:4px}
+#lb-close:hover{opacity:1}
+#lb-img{max-width:90vw;max-height:88vh;object-fit:contain;display:block}
+
+/* FOOTER */
+footer{background:var(--text);color:rgba(255,255,255,0.35);padding:22px 40px;
+  display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;
+  letter-spacing:0.05em;flex-wrap:wrap;gap:10px}
+.f-brand{font-family:'Playfair Display',serif;font-size:0.95rem;color:rgba(255,255,255,0.6)}
+.f-brand span{color:var(--gold)}
+.f-right{color:rgba(255,255,255,0.3);font-size:0.7rem}
+.f-right span{color:var(--gold-light)}
+
+/* BANNER CARD */
+.wcard-banner{aspect-ratio:16/5}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 24px}
+  section{padding:70px 24px}
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .ak-box{max-width:220px}
+  .sk-layout{grid-template-columns:1fr;gap:48px}
+  footer{flex-direction:column;text-align:center}
+}
+@media(max-width:560px){
+  nav{padding:0 16px}
+  .nav-links{gap:16px}
+  .nav-links li a{font-size:0.68rem;letter-spacing:0.08em}
+  section{padding:60px 18px}
+  .work-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+  .scroll-hint{display:flex;width:100%;margin-top:8px}
+  .ak-box{margin:0 auto}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" id="nav-logo">
+    <img src="https://i.ibb.co/LDb04mLh/Untitled-10.png" alt="AK Logo"/>
+  </div>
+  <ul class="nav-links">
+    <li><a id="nav-about">About</a></li>
+    <li><a id="nav-work">Work</a></li>
+    <li><a id="nav-skills">Skills</a></li>
+    <li><a id="nav-contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Available for Collaborations</div>
+    <span class="hero-name">Ayush</span>
+    <span class="hero-name-gold">Kumar Pal</span>
+    <p class="hero-role">— Content Creator &amp; Graphic Designer</p>
+    <p class="hero-desc">I create eye-catching graphics and scroll-stopping social media content — turning ideas into visuals that speak louder than words.</p>
+    <div class="hero-ctas">
+      <a class="btn-gold" id="hero-work-btn">View My Work</a>
+      <a class="btn-border" id="hero-contact-btn">Get In Touch</a>
+      <span class="scroll-hint">Scroll to Explore</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="s-inner">
+    <div class="about-grid">
+      <div>
+        <div class="ak-box">
+          <img src="https://i.ibb.co/LDb04mLh/Untitled-10.png" alt="AK Logo"/>
+        </div>
+      </div>
+      <div>
+        <p class="s-tag">About Me</p>
+        <h2 class="s-title">The Story Behind<br>the <em>Creativity</em></h2>
+        <div class="bio">
+          <p>I'm <strong>Ayush</strong> — a passionate content creator and graphic designer at the very start of an exciting creative journey. I believe that <strong>great visuals have the power to inspire, connect, and leave a lasting impression.</strong></p>
+          <p>I specialise in crafting compelling social media content and eye-catching thumbnails — each piece made with care, curiosity, and a sharp eye for detail.</p>
+          <p>Though I'm early in my journey, my drive and creativity are anything but. Every project is an opportunity to <strong>learn, grow, and create something remarkable.</strong></p>
+        </div>
+        <div class="divider"></div>
+        <div class="info-cards">
+          <div class="ic"><div class="ic-lbl">📍 Location</div><div class="ic-val">Noida, Uttar Pradesh</div></div>
+          <div class="ic"><div class="ic-lbl">🎓 Education</div><div class="ic-val">Bachelor of Science</div></div>
+          <div class="ic"><div class="ic-lbl">💼 Availability</div><div class="ic-val">Freelance &amp; Full-time</div></div>
+          <div class="ic"><div class="ic-lbl">🌐 Languages</div><div class="ic-val">Hindi &amp; English</div></div>
+        </div>
+        <div class="divider"></div>
+        <div class="chips-lbl">Core Skills</div>
+        <div class="chips">
+          <span class="chip">Graphic Design</span>
+          <span class="chip">Social Media Content</span>
+          <span class="chip">Thumbnail Design</span>
+          <span class="chip">Visual Storytelling</span>
+          <span class="chip">Creative Direction</span>
+        </div>
+        <div class="divider"></div>
+        <div class="stats">
+          <div class="stat"><span class="stat-n">2</span><span class="stat-l">Months Active</span></div>
+          <div class="stat"><span class="stat-n">&#8734;</span><span class="stat-l">Ideas</span></div>
+          <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Passion</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="s-inner">
+    <div class="port-hdr">
+      <div>
+        <p class="s-tag">Selected Work</p>
+        <h2 class="s-title">Portfolio</h2>
+      </div>
+      <a class="btn-border" id="wwm-btn">Work With Me</a>
+    </div>
+
+    <!-- Product Ads -->
+    <div class="cat-block">
+      <span class="cat-lbl">Product Ads</span>
+      <div class="work-grid">
+        <div class="wcard" data-src="https://i.ibb.co/Mx4w1SxH/shoe-z-ad.png" data-title="Shoe-Z"><img src="https://i.ibb.co/Mx4w1SxH/shoe-z-ad.png" alt="Shoe-Z" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Shoe-Z</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/TMC4ms70/itira-perfume-ad.png" data-title="Itira Perfume"><img src="https://i.ibb.co/TMC4ms70/itira-perfume-ad.png" alt="Itira Perfume" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Itira Perfume</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/VpCCmNDg/Protein-shake-ad.png" data-title="Protein Shake"><img src="https://i.ibb.co/VpCCmNDg/Protein-shake-ad.png" alt="Protein Shake" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Protein Shake</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/YFJXcK9K/manyo-serum-ad.png" data-title="Manyo Serum"><img src="https://i.ibb.co/YFJXcK9K/manyo-serum-ad.png" alt="Manyo Serum" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Manyo Serum</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/pYKZGmW/calm-body-oil-ad.png" data-title="Calm Body Oil"><img src="https://i.ibb.co/pYKZGmW/calm-body-oil-ad.png" alt="Calm Body Oil" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Calm Body Oil</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/93tXx3S8/mango-lassi-ad.png" data-title="Mango Lassi"><img src="https://i.ibb.co/93tXx3S8/mango-lassi-ad.png" alt="Mango Lassi" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Mango Lassi</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/zTTfRh10/spicy-peanut-ad-1.png" data-title="Spicy Peanut Ad 1"><img src="https://i.ibb.co/zTTfRh10/spicy-peanut-ad-1.png" alt="Spicy Peanut Ad 1" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Spicy Peanut Ad 1</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/xtv4Cbzk/spicy-peanut-ad-2.png" data-title="Spicy Peanut Ad 2"><img src="https://i.ibb.co/xtv4Cbzk/spicy-peanut-ad-2.png" alt="Spicy Peanut Ad 2" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Spicy Peanut Ad 2</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/7xx8NP8k/dove-shampoo-ad-png.png" data-title="Dove Shampoo"><img src="https://i.ibb.co/7xx8NP8k/dove-shampoo-ad-png.png" alt="Dove Shampoo" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Dove Shampoo</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/XxfnBJcn/ayurvedic-hair-oil-ad-png.png" data-title="Ayurvedic Hair Oil"><img src="https://i.ibb.co/XxfnBJcn/ayurvedic-hair-oil-ad-png.png" alt="Ayurvedic Hair Oil" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Ayurvedic Hair Oil</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/5XwQqYwr/Untitled-2.png" data-title="Product Ad 1"><img src="https://i.ibb.co/5XwQqYwr/Untitled-2.png" alt="Product Ad 1" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 1</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/M5jMjQ2n/Untitled-1.png" data-title="Product Ad 2"><img src="https://i.ibb.co/M5jMjQ2n/Untitled-1.png" alt="Product Ad 2" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 2</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/WvCPL44p/Untitled-3.png" data-title="Product Ad 3"><img src="https://i.ibb.co/WvCPL44p/Untitled-3.png" alt="Product Ad 3" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 3</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/zVKgMpwG/Untitled-1-2.png" data-title="Product Ad 4"><img src="https://i.ibb.co/zVKgMpwG/Untitled-1-2.png" alt="Product Ad 4" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 4</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/W4HB88c1/Untitled-8.png" data-title="Product Ad 5"><img src="https://i.ibb.co/W4HB88c1/Untitled-8.png" alt="Product Ad 5" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 5</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/VpB2kTWP/Untitled-2-2.png" data-title="Product Ad 6"><img src="https://i.ibb.co/VpB2kTWP/Untitled-2-2.png" alt="Product Ad 6" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 6</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/Kz75HYjC/Untitled-1.png" data-title="Product Ad 8"><img src="https://i.ibb.co/Kz75HYjC/Untitled-1.png" alt="Product Ad 8" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 8</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/RTfBTqwB/Untitled-1-3.png" data-title="Product Ad 9"><img src="https://i.ibb.co/RTfBTqwB/Untitled-1-3.png" alt="Product Ad 9" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 9</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/5gM0zVXP/Untitled-1-4.png" data-title="Product Ad 10"><img src="https://i.ibb.co/5gM0zVXP/Untitled-1-4.png" alt="Product Ad 10" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 10</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/C5gh1QTH/Untitled-2-1.png" data-title="Product Ad 11"><img src="https://i.ibb.co/C5gh1QTH/Untitled-2-1.png" alt="Product Ad 11" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 11</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/dwwvTGrq/Untitled-2.png" data-title="Product Ad 12"><img src="https://i.ibb.co/dwwvTGrq/Untitled-2.png" alt="Product Ad 12" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 12</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/JFMpVCGr/Untitled-7.png" data-title="Product Ad 13"><img src="https://i.ibb.co/JFMpVCGr/Untitled-7.png" alt="Product Ad 13" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Product Ad</div><div class="wc-ttl">Product Ad 13</div><div class="wc-yr">2026</div></div></div>
+      </div>
+    </div>
+
+    <!-- Flyer Design -->
+    <div class="cat-block">
+      <span class="cat-lbl">Flyer Design</span>
+      <div class="work-grid">
+        <div class="wcard" data-src="https://i.ibb.co/q3K25CpG/restaurant-flyer.png" data-title="Restaurant Flyer"><img src="https://i.ibb.co/q3K25CpG/restaurant-flyer.png" alt="Restaurant Flyer" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Flyer Design</div><div class="wc-ttl">Restaurant Flyer</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/7tf3tj04/restaurant-flyer-2.png" data-title="Restaurant Flyer 2"><img src="https://i.ibb.co/7tf3tj04/restaurant-flyer-2.png" alt="Restaurant Flyer 2" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Flyer Design</div><div class="wc-ttl">Restaurant Flyer 2</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/N2Y072MM/restaurant-flyer-3.png" data-title="Restaurant Flyer 3"><img src="https://i.ibb.co/N2Y072MM/restaurant-flyer-3.png" alt="Restaurant Flyer 3" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Flyer Design</div><div class="wc-ttl">Restaurant Flyer 3</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/HftRQpD3/earthen-elements-flyer.png" data-title="Earthen Elements"><img src="https://i.ibb.co/HftRQpD3/earthen-elements-flyer.png" alt="Earthen Elements" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Flyer Design</div><div class="wc-ttl">Earthen Elements</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/LD0NnfKw/business-consultancy-flyer.png" data-title="Business Consultancy"><img src="https://i.ibb.co/LD0NnfKw/business-consultancy-flyer.png" alt="Business Consultancy" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Flyer Design</div><div class="wc-ttl">Business Consultancy</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/0RVrRWCV/luxury-moutain-retreat-flyer.png" data-title="Luxury Mountain Retreat"><img src="https://i.ibb.co/0RVrRWCV/luxury-moutain-retreat-flyer.png" alt="Luxury Mountain Retreat" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Flyer Design</div><div class="wc-ttl">Luxury Mountain Retreat</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/gZcXz43j/luxury-beachfront-oasis-flyer.png" data-title="Luxury Beachfront Oasis"><img src="https://i.ibb.co/gZcXz43j/luxury-beachfront-oasis-flyer.png" alt="Luxury Beachfront Oasis" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Flyer Design</div><div class="wc-ttl">Luxury Beachfront Oasis</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://i.ibb.co/21HJjK7w/Coral-Sea-Roastery-flyer.png" data-title="Coral Sea Roastery"><img src="https://i.ibb.co/21HJjK7w/Coral-Sea-Roastery-flyer.png" alt="Coral Sea Roastery" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Flyer Design</div><div class="wc-ttl">Coral Sea Roastery</div><div class="wc-yr">2026</div></div></div>
+      </div>
+    </div>
+
+    <!-- Social Media -->
+    <div class="cat-block">
+      <span class="cat-lbl">Social Media</span>
+      <div class="work-grid">
+        <div class="wcard" data-src="https://i.ibb.co/C5DBPc66/social-media-templete.png" data-title="Social Media Template"><img src="https://i.ibb.co/C5DBPc66/social-media-templete.png" alt="Social Media Template" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Social Media</div><div class="wc-ttl">Social Media Template</div><div class="wc-yr">2026</div></div></div>
+      </div>
+    </div>
+
+    <!-- Banner -->
+    <div class="cat-block">
+      <span class="cat-lbl">Banner</span>
+      <div class="work-grid" style="grid-template-columns:1fr;">
+        <div class="wcard wcard-banner" data-src="https://i.ibb.co/jZvqr7yV/Untitled-5.png" data-title="LinkedIn Banner"><img src="https://i.ibb.co/jZvqr7yV/Untitled-5.png" alt="LinkedIn Banner" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Banner</div><div class="wc-ttl">LinkedIn Banner</div><div class="wc-yr">2026</div></div></div>
+      </div>
+    </div>
+
+    <!-- Visiting Cards -->
+    <div class="cat-block">
+      <span class="cat-lbl">Visiting Cards</span>
+      <div class="work-grid">
+        <div class="wcard" data-src="https://raw.githubusercontent.com/ayushkp876-cell/Portfolio-/main/Image/IMG_20260427_203952.jpg" data-title="Visiting Card 1"><img src="https://raw.githubusercontent.com/ayushkp876-cell/Portfolio-/main/Image/IMG_20260427_203952.jpg" alt="Visiting Card 1" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Visiting Card</div><div class="wc-ttl">Visiting Card 1</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://raw.githubusercontent.com/ayushkp876-cell/Portfolio-/main/Image/IMG_20260427_203940.jpg" data-title="Visiting Card 2"><img src="https://raw.githubusercontent.com/ayushkp876-cell/Portfolio-/main/Image/IMG_20260427_203940.jpg" alt="Visiting Card 2" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Visiting Card</div><div class="wc-ttl">Visiting Card 2</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://raw.githubusercontent.com/ayushkp876-cell/Portfolio-/main/Image/Untitled-7%20(1).png" data-title="Visiting Card 3"><img src="https://raw.githubusercontent.com/ayushkp876-cell/Portfolio-/main/Image/Untitled-7%20(1).png" alt="Visiting Card 3" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Visiting Card</div><div class="wc-ttl">Visiting Card 3</div><div class="wc-yr">2026</div></div></div>
+      </div>
+    </div>
+
+    <!-- Posters -->
+    <div class="cat-block">
+      <span class="cat-lbl">Posters</span>
+      <div class="work-grid">
+        <div class="wcard" data-src="https://raw.githubusercontent.com/ayushkp876-cell/Portfolio-/main/Image/Untitled%20(6).png" data-title="Poster 1"><img src="https://raw.githubusercontent.com/ayushkp876-cell/Portfolio-/main/Image/Untitled%20(6).png" alt="Poster 1" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Poster</div><div class="wc-ttl">Poster 1</div><div class="wc-yr">2026</div></div></div>
+        <div class="wcard" data-src="https://raw.githubusercontent.com/ayushkp876-cell/Portfolio-/main/Image/Untitled-2%20(4).png" data-title="Poster 2"><img src="https://raw.githubusercontent.com/ayushkp876-cell/Portfolio-/main/Image/Untitled-2%20(4).png" alt="Poster 2" loading="lazy"/><div class="wc-ov"></div><div class="wc-inf"><div class="wc-cat">Poster</div><div class="wc-ttl">Poster 2</div><div class="wc-yr">2026</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="s-inner">
+    <p class="s-tag">Capabilities</p>
+    <h2 class="s-title">What I <em>Bring</em><br>to the Table</h2>
+    <div class="sk-layout">
+      <div>
+        <p class="sk-desc">A creative designer focused on delivering clean, impactful visuals — whether it's a social post or a thumbnail that gets the click.</p>
+        <div class="tblock">
+          <div class="tlbl">Tools &amp; Software</div>
+          <div class="ttags"><span class="tchip">Canva</span><span class="tchip">Adobe Express Premium</span></div>
+        </div>
+        <div class="tblock">
+          <div class="tlbl">AI Tools</div>
+          <div class="ttags"><span class="tchip ai">ChatGPT</span><span class="tchip ai">DALL&middot;E</span><span class="tchip ai">Gemini</span><span class="tchip ai">Claude</span></div>
+        </div>
+      </div>
+      <div id="skill-bars">
+        <div class="skrow"><span class="sk-nm">Product Ad. Design</span><div class="sk-tr"><div class="sk-fi" data-w="90"></div></div><span class="sk-pc">90%</span></div>
+        <div class="skrow"><span class="sk-nm">Graphic Design</span><div class="sk-tr"><div class="sk-fi" data-w="80"></div></div><span class="sk-pc">80%</span></div>
+        <div class="skrow"><span class="sk-nm">Social Media Content</span><div class="sk-tr"><div class="sk-fi" data-w="85"></div></div><span class="sk-pc">85%</span></div>
+        <div class="skrow"><span class="sk-nm">Thumbnail Design</span><div class="sk-tr"><div class="sk-fi" data-w="82"></div></div><span class="sk-pc">82%</span></div>
+        <div class="skrow"><span class="sk-nm">Visual Storytelling</span><div class="sk-tr"><div class="sk-fi" data-w="80"></div></div><span class="sk-pc">80%</span></div>
+        <div class="skrow"><span class="sk-nm">Creative Direction</span><div class="sk-tr"><div class="sk-fi" data-w="75"></div></div><span class="sk-pc">75%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="s-inner">
+    <div class="ct-wrap">
+      <p class="s-tag">Get In Touch</p>
+      <h2 class="s-title">Have a Project<br>in <em>Mind?</em></h2>
+      <p class="ct-desc">Open to creative collaborations, commissions, and new opportunities. Let's build something remarkable together.</p>
+      <a class="ct-email" id="ct-email-link">ayushkp876@gmail.com</a>
+      <div class="ct-social">
+        <a href="https://instagram.com/creator_ayush1" target="_blank" rel="noopener" class="sb hl">Instagram</a>
+        <a href="https://www.linkedin.com/in/ayush-kumar-pal-0556b1355" target="_blank" rel="noopener" class="sb">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lb-close">&#215;</button>
+  <img id="lb-img" src="" alt=""/>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">A<span>y</span>ush</div>
+  <div>&#169; 2026 Ayush Kumar Pal. All rights reserved.</div>
+  <div class="f-right">Made with craft &amp; intention <span>&#10022;</span></div>
+</footer>
+
+<script>
+(function(){
+  // ── SCROLL HELPER (use goTo, not scrollTo to avoid overriding native) ──
+  function goTo(id){
+    var el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  }
+
+  // NAV LINKS
+  document.getElementById('nav-logo').addEventListener('click', function(){ goTo('hero'); });
+  document.getElementById('nav-about').addEventListener('click', function(){ goTo('about'); });
+  document.getElementById('nav-work').addEventListener('click', function(){ goTo('work'); });
+
+  document.getElementById('nav-skills').addEventListener('click', function(){ goTo('skills'); });
+  document.getElementById('nav-contact').addEventListener('click', function(){ goTo('contact'); });
+
+  // HERO BUTTONS
+  document.getElementById('hero-work-btn').addEventListener('click', function(){ goTo('work'); });
+  document.getElementById('hero-contact-btn').addEventListener('click', function(){
+    window.open('mailto:ayushkp876@gmail.com?subject=Work%20Inquiry','_blank');
+  });
+
+  // WORK WITH ME
+  document.getElementById('wwm-btn').addEventListener('click', function(){
+    window.open('mailto:ayushkp876@gmail.com?subject=Work%20Inquiry','_blank');
+  });
+
+  // EMAIL LINK
+  document.getElementById('ct-email-link').addEventListener('click', function(){
+    window.open('mailto:ayushkp876@gmail.com?subject=Work%20Inquiry','_blank');
+  });
+
+  // LIGHTBOX
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lb-img');
+
+  document.querySelectorAll('.wcard').forEach(function(card){
+    card.addEventListener('click', function(){
+      var src = card.getAttribute('data-src');
+      var title = card.getAttribute('data-title');
+      lbImg.src = src;
+      lbImg.alt = title;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLb(){
+    lb.classList.remove('open');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lb-close').addEventListener('click', function(e){
+    e.stopPropagation();
+    closeLb();
+  });
+
+  lb.addEventListener('click', function(e){
+    if(e.target === lb) closeLb();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeLb();
+  });
+
+  // SKILL BARS on scroll
+  var fills = document.querySelectorAll('.sk-fi');
+  fills.forEach(function(f){ f.style.width = '0'; });
+
+  var bars = document.getElementById('skill-bars');
+  var fired = false;
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting && !fired){
+        fired = true;
+        fills.forEach(function(f){
+          setTimeout(function(){ f.style.width = f.getAttribute('data-w') + '%'; }, 150);
+        });
+      }
+    });
+  }, {threshold: 0.2});
+  observer.observe(bars);
+
+})();
+</script>
+</body>
+</html>
